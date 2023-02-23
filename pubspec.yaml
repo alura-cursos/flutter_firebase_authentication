@@ -1,0 +1,27 @@
+name: flutter_firebase_authentication
+description: Listin - Projeto do Curso de Flutter com Firebase Authentication da Alura
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  firebase_core: ^2.4.0
+  cloud_firestore: ^4.2.0
+  uuid: ^3.0.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+
+flutter:
+
+  uses-material-design: true
