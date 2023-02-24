@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_authentication/_core/my_colors.dart';
+import 'package:flutter_firebase_authentication/authentication/components/show_snackbar.dart';
 import 'package:flutter_firebase_authentication/authentication/services/auth_service.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -187,9 +188,13 @@ class _AuthScreenState extends State<AuthScreen> {
         email: email, senha: senha, nome: nome);
 
     if (erro == null) {
-      print("Conta cadastrada com sucesso!");
+      showSnackBar(
+        context: context,
+        mensagem: "Conta cadastrada com sucesso.",
+        isErro: false,
+      );
     } else {
-      print(erro);
+      showSnackBar(context: context, mensagem: erro);
     }
   }
 }
