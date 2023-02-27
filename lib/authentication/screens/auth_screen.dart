@@ -177,7 +177,17 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 
   _entrarUsuario({required String email, required String senha}) {
-    authService.entrarUsuario(email: email, senha: senha);
+    authService.entrarUsuario(email: email, senha: senha).then((String? erro) {
+      if (erro == null) {
+        showSnackBar(
+          context: context,
+          mensagem: "Conta logada com sucesso",
+          isErro: false,
+        );
+      } else {
+        showSnackBar(context: context, mensagem: erro);
+      }
+    });
   }
 
   _criarUsuario({
