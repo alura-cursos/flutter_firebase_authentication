@@ -221,6 +221,43 @@ class _AuthScreenState extends State<AuthScreen> {
 
   esqueciMinhaSenhaClicado() {
     String email = _emailController.text;
-    authService.redefincaoSenha(email: email);
+    showDialog(
+      context: context,
+      builder: (context) {
+        TextEditingController redefincaoSenhaController =
+            TextEditingController(text: email);
+        return AlertDialog(
+          title: const Text("Confirme o e-mail para redefinição de senha"),
+          content: TextFormField(
+            controller: redefincaoSenhaController,
+            decoration: const InputDecoration(label: Text("Confirme o e-mail")),
+          ),
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(32))),
+          actions: [
+            TextButton(
+              onPressed: () {
+                authService
+                    .redefincaoSenha(email: redefincaoSenhaController.text)
+                    .then((String? erro) {
+                  if (erro == null) {
+                    showSnackBar(
+                      context: context,
+                      mensagem: "E-mail de redefinição enviado!",
+                      isErro: false,
+                    );
+                  } else {
+                    showSnackBar(context: context, mensagem: erro);
+                  }
+
+                  Navigator.pop(context);
+                });
+              },
+              child: const Text("Redefinir senha"),
+            ),
+          ],
+        );
+      },
+    );
   }
 }
