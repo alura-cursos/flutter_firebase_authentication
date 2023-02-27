@@ -3,8 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  entrarUsuario({required String email, required String senha}) {
-    print("METODO ENTRAR USUARIO");
+  entrarUsuario({required String email, required String senha}) async {
+    await _firebaseAuth.signInWithEmailAndPassword(
+        email: email, password: senha);
+    print("Conta logada com sucesso!");
   }
 
   Future<String?> cadastrarUsuario({
