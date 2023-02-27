@@ -93,6 +93,15 @@ class _AuthScreenState extends State<AuthScreen> {
                       },
                     ),
                     Visibility(
+                      visible: isEntrando,
+                      child: TextButton(
+                        onPressed: () {
+                          esqueciMinhaSenhaClicado();
+                        },
+                        child: Text("Esqueci minha senha."),
+                      ),
+                    ),
+                    Visibility(
                         visible: !isEntrando,
                         child: Column(
                           children: [
@@ -208,5 +217,10 @@ class _AuthScreenState extends State<AuthScreen> {
         }
       },
     );
+  }
+
+  esqueciMinhaSenhaClicado() {
+    String email = _emailController.text;
+    authService.redefincaoSenha(email: email);
   }
 }

@@ -45,4 +45,13 @@ class AuthService {
 
     return null;
   }
+
+  Future<String?> redefincaoSenha({required String email}) async {
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      return e.code;
+    }
+    return null;
+  }
 }
