@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_authentication/authentication/services/auth_service.dart';
 
 showSenhaConfirmacaoDialog({
   required BuildContext context,
@@ -26,7 +27,18 @@ showSenhaConfirmacaoDialog({
           ),
         ),
         actions: [
-          TextButton(onPressed: () {}, child: const Text("EXCLUIR CONTA"))
+          TextButton(
+            onPressed: () {
+              AuthService()
+                  .removerConta(senha: senhaConfirmacaoController.text)
+                  .then((String? erro) {
+                if (erro == null) {
+                  Navigator.pop(context);
+                }
+              });
+            },
+            child: const Text("EXCLUIR CONTA"),
+          )
         ],
       );
     },
