@@ -67,4 +67,8 @@ class AuthService {
 
     return null;
   }
+
+  removerConta() async {
+    await _firebaseAuth.currentUser!.delete();
+  }
 }

@@ -30,6 +30,16 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           children: [
             ListTile(
+              leading: const Icon(
+                Icons.delete,
+                color: Colors.red,
+              ),
+              title: const Text("Remover conta"),
+              onTap: () {
+                AuthService().removerConta();
+              },
+            ),
+            ListTile(
               leading: const Icon(Icons.logout),
               title: const Text("Sair"),
               onTap: () {
