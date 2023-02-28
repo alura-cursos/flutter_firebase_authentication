@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_authentication/authentication/components/show_senha_confirmacao_dialog.dart';
 import 'package:flutter_firebase_authentication/authentication/services/auth_service.dart';
 import 'package:flutter_firebase_authentication/firestore/services/listin_service.dart';
 import 'package:flutter_firebase_authentication/firestore_produtos/presentation/produto_screen.dart';
@@ -36,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               title: const Text("Remover conta"),
               onTap: () {
-                AuthService().removerConta();
+                showSenhaConfirmacaoDialog(context: context, email: "");
               },
             ),
             ListTile(
