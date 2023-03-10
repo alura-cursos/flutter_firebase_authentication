@@ -98,7 +98,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         onPressed: () {
                           esqueciMinhaSenhaClicado();
                         },
-                        child: Text("Esqueci minha senha."),
+                        child: const Text("Esqueci minha senha."),
                       ),
                     ),
                     Visibility(

@@ -207,7 +207,10 @@ class _ProdutoScreenState extends State<ProdutoScreen> {
           // Formulário com Título, Campo e Botões
           child: ListView(
             children: [
-              Text(labelTitle, style: Theme.of(context).textTheme.headline5),
+              Text(
+                labelTitle,
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
               TextFormField(
                 controller: nameController,
                 keyboardType: TextInputType.name,

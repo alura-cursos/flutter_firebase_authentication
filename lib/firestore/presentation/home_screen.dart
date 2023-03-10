@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_authentication/authentication/components/show_senha_confirmacao_dialog.dart';
@@ -162,7 +161,8 @@ class _HomeScreenState extends State<HomeScreen> {
           // Formulário com Título, Campo e Botões
           child: ListView(
             children: [
-              Text(labelTitle, style: Theme.of(context).textTheme.headline5),
+              Text(labelTitle,
+                  style: Theme.of(context).textTheme.headlineSmall),
               TextFormField(
                 controller: nameController,
                 decoration:
